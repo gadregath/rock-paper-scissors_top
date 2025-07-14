@@ -3,28 +3,8 @@ function getComputerChoice() {
     return Math.floor(Math.random() * 3);
 }
 
-let computerChoice = getComputerChoice();
-
-if (computerChoice === 0) {
-    console.log('Rock');
-} else if (computerChoice === 1) {
-    console.log('Paper');
-} else if (computerChoice === 2) {
-    console.log('Scissors');
-}
-
 function getHumanChoice(){
     return prompt('Make your move').toLowerCase();
-}
-
-let humanChoice = getHumanChoice();
-
-if (humanChoice === 'rock') {
-    console.log('Rock');
-} else if (humanChoice === 'paper') {
-    console.log('Paper');
-} else if (humanChoice === 'scissors') {
-    console.log('Scissors');
 }
 
 let humanScore = 0;
@@ -54,5 +34,13 @@ function playRound(computerChoice, humanChoice) {
     }
 }
 
-playRound(computerChoice, humanChoice);
+function playGame() {
+    for (let i = 0; i < 5; i++) {
+        let computerChoice = getComputerChoice();
+        let humanChoice = getHumanChoice();
+        playRound(computerChoice, humanChoice);
+    }
+}
 
+playGame()
+console.log(`Your score is: ${humanScore}\nThe computer's score is ${computerScore}`);
